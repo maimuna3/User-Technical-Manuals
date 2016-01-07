@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta  name="viewport" content="width=device-width, intial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+       <link rel="stylesheet" type="text/css" href="stylesheets/Stylesheet.css" />
+      
+                <title>Online Recruitment System User Manual</title>
+        <title></title>
+    </head>
+    <body>
+         <header>
+               <div id="header_image">
+                 <a href="images/Page.cshtml"><img src="images/logo.png" id ="logo" alt="Logo"></a>
+                 <img src="images/header.png" id="main_header_image" alt="Online Recruitment System User Manual">
+              </div></header>
+        <nav class="col-sm-2">
+     
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse"  href="#collapse1">Getting Started</a>
+            </h4>
+          </div>
+          <div id="collapse1" class="panel-collapse collapse in">
+            <div class="panel-body"> 
+            
+            <p><a href="#home">Home</a></p>
+            <p><a href="#information pages">Information Pages</a></p>
+            <p><a href="#finding jobs">Finding jobs</a></p>
+           </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a  data-toggle="collapse"  href="#collapse2">Administrator</a>
+            </h4>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p><a href="#adding jobs">Adding Jobs</a></p>
+            <p><a href="#editing jobs">Editing Jobs</a></p>
+            <p><a href="#deleting jobs">Deleting Jobs</a></p></div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse"  href="#collapse3">Job Seekers</a>
+            </h4>
+          </div>
+          <div id="collapse3" class="panel-collapse collapse">
+            <div class="panel-body">  
+                <p><a href="#logging in">Logging in</a></p>
+            <p><a href="#registering">Registering</a></p>
+            <p><a href="#applying">Applying</a></p> </div>
+          </div>
+        </div>
+      </div> 
+    </div></nav>
+
+          <script src="javascript/jquery-2.1.1.min.js"></script>
+    <script src="javascript/bootstrap.min.js"></script>
+    <section>
+        <h2>GETTING STARTED</h2>
+        <br/>
+        <p>This is a User manual for the online recruitment system and has been created to give new users an insight into what the system entails and also to guide users on the processes of using the system. Below are instructions 
+        on how to go about achieving specific tasks on the system. The online recruitment system is designed to accommodate two kinds of users, the Administrator and Job Applicants. The administrator is allowed to Add new job
+        vacancies, edit this jobs and delete them if need be. The Job applicants can then apply for the jobs added by the administrator. The applicants have to register on the system during their first application, once their account have been created,
+        then they can apply. On subsequent visits to apply, the applicants only have to login then they are provided with a brief form which they have to fill and then upload their cover letter and resume. These processes are further explained
+        below.</p><br/>
+        <h3 id="home">Home</h3>
+        <figure><img src="images/home.png" id ="home" alt="home"><figcaption>fig 1.0 Home Page</figcaption></figure>
+        <br/>
+        The figure above is the home page and on the header, there are five links which are the Home, Current Vacancies, working for Us, About Us and How to apply. 
+        These links lead to pages that give more information about the organization and the process of application for potential applicants.
+        The right hand of the page contains details of available jobs that can be applied for, jobs are added by the administrators
+        <br/><br/>
+        <h3 id="information pages">Information pages</h3>
+         <figure><img src="images/working.png" id ="working" alt="working for us"><figcaption>fig 2.0 Working for Us</figcaption></figure>
+        <br/>
+        <p>clicking the "working for us" link in the home page brings you to the page displayed above, this page provides information about working with the organization,
+            what you can expect to see and experience while working with the organisation. This helps applicants understand the environment they may find themselves in.
+             </p><br/>
+         <figure><img src="images/how_apply.png" id ="how_apply" alt="how to apply"><figcaption>fig 3.0 How to Apply</figcaption></figure>
+       <br/> As described previously, this page also provides information, but this time, on the application process. By clicking on the "How to Apply" link in the home page, you get 
+        redirectd to this page and it provides a step by step process on applying for a job. A video that describes the application process can be found <a href="#applying">here</a> 
+        <br/><br/>
+        <h3 id="finding jobs">Finding Jobs</h3>
+        <figure><img src="images/available_jobs.png" id ="available_jobs" alt="Available jobs"><figcaption>fig 4.0 Current Vacancies</figcaption></figure>
+        <br/> On the home page, click "Current Vacancies" to view the currently available jobs receiving applications, this link will redirect you to the figure above and you can click on any of
+        the listed jobs to apply for it.
+        <br/><br/>
+        <h2>WEBSITE ADMINISTRATOR</h2>
+        <br/><p>The web administrator is the person incharge of the system and is the one that adds jobs, edit the jobs or delete them. This section provides information on how to perform the tasks of the 
+    administrator.</p><br/>
+        <h3 id="adding jobs">Adding Jobs</h3>
+                <figure><img src="images/add_job.png" id ="add_jobs" alt="Add jobs"><figcaption>fig 5.0 Adding a Job</figcaption></figure>
+        <br/>
+        <p>The following are steps to be taken in order to add a job to the system.</p>
+        <p>Step 1: Enter the login url "<span style="color: #ff0000">http://localhost:51178/login</span>" into the address bar at the top of your browser</p>
+        <p>Step 2: Enter the Admin Username and Password which will be provided and click "Login". You will be redirected to the admin page</p>
+        <p>Step 3: On the admin header, click "Add Job" and you will be provided with a form.</p>
+        <p>Step 4: Fill the form provided with a job and its description and click "Add Job". see fig 5.0.</p>
+       <br/><br/>
+         <h3 id="editing jobs">Editing Jobs</h3>
+                <figure><img src="images/edit1.png" id ="edit_jobs" alt="edit jobs"><figcaption>fig 6.1 Editing an existing Job</figcaption></figure>
+                <br/><figure><img src="images/edit2.png" id ="edit_jobs" alt="edit jobs"><figcaption>fig 6.2 Editing an existing Job</figcaption></figure>
+        <br/><p>Follow the steps below to edit an existing job</p>
+        <p>Step 1: Login using the Admin Username and Password</p>
+        <p>Step 2: Click "Manage Jobs". see fig 6.1  </p>
+        <p>Step 3: Select a job you wish to edit from the list of jobs and you will be redirected to an edit/delete page. </p>
+        <p>Step 4: Click "Edit this Job" and an edit job form will be provided. see fig 6.2</p>
+        <p>Step 5: Edit the form information and click "Update" to finalize the changes made.</p>
+        <br/><br/><h3 id="deleting jobs">Deleting Jobs</h3>
+                <figure><img src="images/delete1.png" id ="delete_jobs" alt="delete jobs"><figcaption>fig 7.1 Deleting a Job</figcaption></figure>
+               <br/> <figure><img src="images/delete2.png" id ="delete_jobs" alt="delete jobs"><figcaption>fig 7.2 Deleting a Job</figcaption></figure>
+       <br/>
+        <p>To delete a Job either because it's deadline has been reached, or for any other reason, follow the steps below</p>
+        <p>Step 1: Login using the Admin username and password</p>
+        <p>Step 2: Click "Manage Jobs"</p>
+        <p>Step 3: Select a job you wish to delete from the list of jobs and you will be redrected to the edit/delete page. </p>
+        <p>Step 4: Click the "Delete this Job" button and you will be asked to confirm tour delete. see fig 7.1</p> 
+        <p>Step 5: Click the "Delete" button to delete the job see fig 7.2</p>
+        <br/><br/>
+        <h2>JOB SEEKERS</h2>
+        <h3 id="logging in">Logging in</h3>
+        <figure><img src="images/login.png" id ="login" alt="login"><figcaption>fig 8.0 Login Page</figcaption></figure>
+        <br/><p>To apply for any job, you must be logged in, and to login you need to select a job you want to apply for.</p>
+        <p>Step 1: On the home page, click "Current Vacancies" to view the jobs currently available for application</p>
+        <p>Step 2: Select job of your choice</p>
+        <p>Step 3: Click "Apply for this Job" and a login form will be provided</p>
+        <p>step 4: Enter your login details and click login and you will be redirected to the application page. see fig 8.0</p>
+        <br/><br/>
+        <h3 id="registering">Registering</h3>
+        <figure><img src="images/register.png" id ="register" alt="register"><figcaption>fig 9.0 Registration Page</figcaption></figure>
+        <br/>
+        <p>This is similar to the steps taken to log into the system. All you need to do is click the "New User" button instead of the login button (see fig 9.0) and you will be provided with the registration form. Fill this form and submit, fields with red asterix are required.
+            Once an account has been created, you will be redirected to the application page. fill in that form and submit, then log out.
+        </p>
+        <br/></br>
+        <h3 id="applying">Applying</h3>
+       <figure> <video width="50%" controls>
+  <source src="../images/apply.mp4" type="video/mp4"/>
+  <source src="../images/apply.oog" type="video/oog"/>
+  Your browser does not support HTML5 video.
+</video><figcaption>fig 10.0 Application Process</figcaption></figure>
+        <p>
+          The video above presents a simple and straight forward process to applying for a job on the website once you have registered with the system.
+
+            
+        </p>
+      
+        </section>
+
+  <footer>
+            <p>Copyright &copy Our COMP6205 Coursework 2014</p>
+            </footer>
+    </body>
+</html>

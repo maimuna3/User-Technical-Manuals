@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta  name="viewport" content="width=device-width, intial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="stylesheets/Stylesheet2.css" />
+        <script src="../javascript/jquery-2.1.1.min.js"></script>
+        <title>Technical Manual for Online Recrutment System</title>
+    </head>
+    <body>
+          <div class="header">
+               <header>
+             <h1>Online Recruitment System Technical Manual</h1>
+             <div class="sticky-navigation">
+             <nav>
+              <ul class="showing">
+                 <li><a href ="TechnicalManual.html">Introduction</a></li>
+                 <li><a href ="TechnicalManual.html#systemdesign">System Design</a></li>
+                 <li><a href ="TechnicalManual.html#implementation">Implementation</a></li>
+                 <li><a href ="TechnicalManual.html#references">References</a></li>
+               </ul>
+                 <div class="handle">Menu</div>
+             </nav>
+            </div>
+            <script>
+                $('.handle').on('click', function(){
+                  $('nav ul').toggleClass('showing');
+                });
+            </script>
+     <!--waypoint plugin from http://imakewebthings.com/jquery-waypoints/-->>
+    <script src="../javascript/waypoints.js"></script>
+    <script src="../javascript/waypoints-sticky.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.sticky-navigation').waypoint('sticky');
+        });
+    </script>
+            </header>
+              </div>
+            <main role="main">
+                <h4>Introduction</h4>
+                <p>This document provides a detailed explanation of the design and development of an Online Recruitment System which any organisation can use as it's own Online Recruitment System. This Online Recruitment System will have an inbuilt Content management system that would enable the website administartor to add,edit and delete jobs from the system without <span id="systemdesign"> needing to write code</span>. The skills that the developers want to enhance are Creating a responsive user interface with HTML5, CSS3 & JavaScript and Declarative validation of user input. In order to enhance these skills, the developers chose to create the sytem using ASP.NET webpages which they had to learn from scratch and in the process of developing the system learnt Role-based security and logging for improved management of information security</p>
+                <br />
+                <div>
+                <h4>Architecture and Design of the Proposed System</h4>
+                <p>For this project a three tier architecture was adopted. This is the client server architecture in which the components of the application are divided into three logical layers and these layers are the user interface layer, the application logic layer and the database layer. The user interface contains HTML elements that is needed to communicate and collect information from user. The application layer receives request from user interface layer. The application layer enables users to interact with the web application while the database layer stores the data it is stores and models data needed by the system. The application logic layer retrieves data that it needs from the database and also stores data produced by its computation in the database. The three tier architecture was chosen because according to Chen et al () it helps in the creation of a robust and flexible system. Other reasons are It helps in achieving a very secure system and the separation of the application function and database function means better load balancing(Ramirez, 2000). Also any of the tiers can be changed without affecting the other tiers(Ramirez, 2000). Other abenefits to the application are ease of maintainanace, system is easily scalable, portability and according to Microsoft and it also allows the division of the application development work.This architecture is presented in figure 1.0 below
+                </p><figure>
+                <img src="/images/architecture.jpg" alt="Architecture of the System">
+                <figcaption>figure 1.0 The three tier architecture</figcaption>
+                </figure>
+                <h3>System Design</h3>
+                <p>In order to design the online recruitment system, the system needs to be analyzed. The first take to taken in this analysis is the identification of the stakeholders and their main expectations from the system. These stakeholders are:<br />
+<b>The Developers</b>: Their main expectation is that the system is easy to develop, maintain and also very secure and scalable<br />
+<b>The Admin</b>:The admin is reponsible for creating,editing and deleting jobs from the system and his main expectaion is that the system is fast, secure and easy to use.<br />
+<b>The Users</b>:These are the job seekers who will use the system to apply for jobs, their main expectation is that the system is fast and  easy to use.
+</p>
+<h4>Requirements Gathering</h4>
+First the functional requirements i.e the capabilities of the system are first gathered and this is followed by the non-functional requirements which are the constraints on the system.
+<h4>Functional Requirements</h4>
+The system must display all available jobs to all visitors of the website</br>
+The system must allow to admin to add new jobs to the system</br>
+The system must allow the admin to edit or delete jobs added to the system</br>
+The system must allow applicants to apply for jobs</br>
+The system shall allow job seekers to register in order to receive job updates</br>
+The system shall not allow applicants to apply for a job once the deadline for a job has passed</br>
+
+<h4>Non-functional requirements</h4>
+The application must be available 24 hours a day and seven hours a week</br>
+The application must be very secure in order to protect users information from attackers
+
+<h4>User Stories</h4>
+Since the functional requirements have been written down,attention is now shifted to how a user can accomplish a specific goal with the application. User stories are to be used in are to be used here for the description of the system from the perspective of a user focusing on what why they want to accomplish and why they want to accomplish that goal. For this application the following user stories are to be implemented:
+<ol>
+<li>As a site admin, I want to add jobs using a content management system</li>
+<li>As a site admin, I want to edit or delete jobs that are added to the database</li>
+<li>As registered user, I want to apply for a job</li>
+<li>As an Admin I want to view job applications</li>
+<li>As a guest I want to register in order to receive job updates</li>
+</ol>
+The system was further analysed using use cases and the use case diagram is shown in fig 1.1 below
+                 <figure>
+                <img src="/images/useCase.jpg" alt="Use case diagram of the system">
+                <figcaption>figure 1.1 The use case diagram</figcaption>
+                </figure>
+<h5>Database Design</h5>
+                <p>In the database,eight tables were created,There is a table for jobs , a table for applicants and then another table for Jobs applications which links applicants to the job they applied for. This table contains two foreign keys, the job id which is the primary key in the jobs database and applicant id which is the primary key in the applicants table.Another table was created to contain the CV of applicants while four tables were created for ASP.NET web Security module which manages authentication and authorisation in the system.</p>
+                <h5  id="implementation">User Interface Design</h5>
+                <p>For the user interface, the Incremental build model was adopted in this case, an aspect of the user interface is created and it’s look is evaluated and it’s responsiveness to different browser sizes is also tested.</p>
+
+                <h4>Implementation</h4>
+                Implementation involves the translation of the design into an actual system which can provide the functionalities outlined in the requirements.
+                <h3>Technologies Used for the System</h3>
+                <h5>ASP.NET WebPages</h5>
+                <p>
+                ASP.NET is used in this project, it is a server-side web application framework that was designed to enable web developers create dynamic and rich web pages. ASP.NET was designed by Microsoft and is open source. It is not limited to scripting languages alone but also allows developers to incorporate .NET languages like C#, F#, VB etc.</p>
+<p>ASP.NET webpages which is one of the development models supported by ASP.NET was used for the development of the online recruitment system. It allows the integration of HTML and C# or Visual Basic code, the other models are ASP.NET webforms, Single Page Applications and the Model-View-Controller (MVC). ASP.NET web pages was chosen by the developers because they wanted to actually write the codes manually in order to learn ASP.NET and have total control over the appearance and behavior of the web pages. Also ASP.NET web pages supports better integration with client side tools like jQuery. The webforms model which is also relatively easy to learn and requires minimal coding could have been a good choice considering the time constraint and workload but for the purpose of learning, the webpages model was used in implementation. Other approaches considered were the single page application and the ASP.NET MVC. The Single Page Application is a different approach to implementing web applications which Instead of dividing the functionalities of a Web applications across separate Web pages within the application and linking the pages, instead a single page is defined that the user lands on and stays on as long as the user workswith the application (Brian, 2014). Considering the scope of the web application, this approach would not be reasonable as the project is concerned with two distinctive types of users with totally different functions. Also with respect to scope and constraints, the MVC is a rather complex approach to implementation because it involves complex coding.</p>
+                <p>Using the ASP.NET Web Pages, also creates room for creating a consistent look for a website.  Codes used universally throughout the system e.g. the headers and footer were written in files once and kept in a shared folder. Which is accessed by other pages by rendering the file.</p>
+    <h5>HTML5</h5>
+                <p>HTML5 wich is the latest revision of the HTML standard was used for this project.The viewport meta tag which is supported by HTML5 helps in the creation of  a responsive website by allowing developers to tell the browser how it will display their page. The viewport meta tag and many other HTML5 elements like header,nav,figure etc were used for this project.</p>
+    <h5>CSS3</h5>
+                <p>CSS3 which is the latest standard for Cascading style sheet was also used. CSS3 makes the creation of responsive websites efficient because using the @Media attribute, special styles can be defined which will be applied to the page when some defined properties of the media such as maximum width becomes true. In this project, All the css codes are in one file, this is to avoid making multiple requests to the server which would slow the website down. Also for easy styling of the forms, bootsrap was used. In this project,we defined a breakpoint of 580px so that when the maximum width of the screen becomes 580px, those styles are applied. Also, fluid layout was adopted, that is, relative units of measurement such as percentages and ems were used and this enables the page to scale accordingly as device size  is changed.</p>
+                <h5>JQuery</h5>
+                <p>Jquery which is a Javascript Library was used for the validation of user input in forms. It was also used to implement the toggling of the main when the page is viewed on a mobile device</p>
+
+                <h4>Tools</h4>
+                <h6>Microsoft WebMatrix</h6>
+                <p>This project was built using Microsoft Web matrix, which is a web development tool developed by Microsoft for Windows, an alternative development tool is the visual studio also owned by Microsoft and designed to support the .NET technologies. Web matrix was designed to support small to medium web applications. Considering the scope of the project and the chosen ASP.NET web pages model, web matrix was a better choice of tool as it was made to support asp.net webpages. Using visual studio would be inefficient because the features provided would not have been taken advantage of as the codes were manually written. The tool includes a web server, a database server and a server-side scripting language, all of these were used in the development and these provided ease of implementation and testing while developing. WebMatrix also allowed us to make use of the ASP.NET web security feature which is used when there is a need to implement user registration and login.</p>
+               
+                <h5>Implementation of the web pages</h5>
+Our web pages were hand coded and not generated .They were saved as .cshtml webpages with the html tags mixed with the asp.net web pages code. In order to ensure a uniform look for the webpages, a header and a footer were created which were called using the RenderPage() function every time a page is loaded. HTML5 elements such as viewport meta tag were used to make the webpages responsive.
+                <h5>Implementation of the Header</h5>
+                <p>In order to ensure the webpages have a consistent look,we created a header which contains the common elements that are needed in other pages.It is written in mainly HTML5 and Javascript.Below is the code for the header, The file is named header.cshtml and it is in the shared folder</p>.   
+                                <pre>
+&lt;!DOCTYPE html&gt
+&lt;html lang="en"&gt
+    &lt;head&gt
+        &lt;meta charset="utf-8" /&gt
+        &lt;meta  name="viewport" content="width=device-width, intial-scale=1.0"&gt
+        &lt;link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" /&gt
+        &lt;link rel="stylesheet" type="text/css" href="/stylesheets/Stylesheet.css" /&gt
+        &lt;script src="../javascript/jquery-2.1.1.min.js"&gt&lt;/script&gt
+        &lt;script src="../javascript/jquery.validate.min.js"&gt&lt;/script&gt
+        &lt;script src="../javascript/jquery.validate.unobtrusive.min.js"&gt&lt;/script&gt
+        &lt;title&gtOnline Recrutment System&lt;/title&gt
+    &lt;/head&gt
+    &lt;body&gt
+           &lt;header&gt
+               &lt;div id="header_image"&gt
+                 &lt;a href="Page.cshtml"&gt&lt;img src="/images/logo.png" id ="logo" alt="Logo"&gt&lt;/a&gt
+                 &lt;img src="/images/header_image01.png" id="main_header_image" alt="Online Recruitment System"&gt
+              &lt;/div&gt
+             &lt;nav&gt
+              &lt;ul class="showing"&gt
+                 &lt;li&gt&lt;a href ="/home.cshtml"&gtHome&lt;/a&gt&lt;/li&gt
+                 &lt;li&gt&lt;a href ="/current_jobs.cshtml"&gtCurrent Vacancies&lt;/a&gt&lt;/li&gt
+                 &lt;li&gt&lt;a href ="/working_for_us.cshtml"&gtWorking For Us&lt;/a&gt&lt;/li&gt
+                 &lt;li&gt&lt;a href ="/about.cshtml"&gtAbout Us&lt;/a&gt&lt;/li&gt
+                 &lt;li&gt&lt;a href ="/apply.cshtml"&gtHow To Apply&lt;/a&gt&lt;/li&gt
+                &lt;/ul&gt
+                 &lt;div class="handle"&gtMenu&lt;/div&gt
+             &lt;/nav&gt
+            &lt;script&gt
+                $('.handle').on('click', function(){
+                  $('nav ul').toggleClass('showing');
+                });
+          &lt;/script&gt
+            &lt;/header&gt
+                </pre>        
+                 <h5>Home Page Implementation</h5>
+                <p>The home page of this system was implemented using ASP.NET webpages and HTML5 while CSS3 was used to style it. The coding was done with WebMatrix 3.0 .The main menu implementation is shown in figure 2.0</p>.Its appearance on a small screen device is shown in fig 2.1</p>
+                 <figure>
+                <img src="/images/home.jpg" alt="The Home Page">
+                <figcaption>figure 2.0 The Home Page</figcaption>
+                </figure>
+                <figure id="mobile">
+                <img src="/images/homemobile.jpg" alt="The mobile version of home page">
+                <figcaption>figure 2.1 The mobile version of home page</figcaption>
+                </figure>
+                <h5>Current Vacancies Page</h5>
+<p>This page queries the database and returns all the jobs in the database. A user then has to click on any of the jobs in order to get detailed information about the job and the see the link to apply for the job.figure 2.2 below shows the current Jobs page</p>
+                <figure>
+                <img src="/images/jobs.jpg" alt="The Current Vacancies Page">
+                <figcaption>figure 2.2 The Current Vacancies Page</figcaption>
+                </figure>
+                <h5>Registration page</h5>
+<p>In order to apply for a job, a user needs to register. It’s this page that the user will use to register .The form is validated on the client side using JQuery validation plugin which was recommended by Cody(2009) and FitzMacken(2014). Here,in order to validate a field,after page has been linked to the jquery plugin,Validation.For(field) is added to the field to be verified.The server side validation using done ASP.NET web pages Validation helper.</p>
+               
+               <figure>
+                <img src="/images/register.jpg" alt="The Registration Page">
+                <figcaption>figure 2.3 The Registration Page</figcaption>
+                </figure>
+                <h5>Apply Page</h5>
+<p>After logging in or registering, a job applicant is redirected to this page where he/she can then upload his/her CV and cover letter and then apply for the chosen job.The code for the double file upload is shown below.The file name is apply.cshtml and the file is in the admin folder</p>
+    <pre>
+    var fileName = "";
+    var fileMime = "";
+    int numFiles = Request.Files.Count;
+    int uploadedCount = 0;
+    if (IsPost && Validation.IsValid()) 
+
+          
+        for(int i =0; i < numFiles; i++) {
+        var uploadedFile = Request.Files[i];
+
+        fileName = Path.GetFileName(uploadedFile.FileName);
+        if(fileName != String.Empty)
+        {
+            fileMime = uploadedFile.ContentType;
+            var fileStream = uploadedFile.InputStream;
+            var fileLength = uploadedFile.ContentLength;
+            
+            byte[] fileContent = new byte[fileLength];
+            fileStream.Read(fileContent, 0, fileLength);
+
+         var db = Database.Open("online_recruitment");
+            var sql = "INSERT INTO file_upload (id, job_id, file_name, mime_type, file_content) VALUES (@0,@1,@2,@3,@4)";
+             db.Execute(sql, user_id, job_id, fileName, fileMime, fileContent);
+             
+                  id = (int)db.GetLastInsertId();}
+        uploadedCount++;</pre>
+                <h5>Add jobs page</h5>
+<p>This is to be accessible only to the site admin. This page is to be used for adding jobs which will then appear in the Current Jobs Page. The page is responsive so the admin can add jobs using his/her mobile device.Fig 2.4 shows how the page appears on a mobile device.</p>
+                 <figure id="mobile">
+                <img src="/images/add_job_mobile.jpg" alt="The Add Job Page">
+                <figcaption>figure 2.4 The Add Job Page</figcaption>
+                </figure>
+<h5>Edit Jobs Page</h5> 
+<p>Information that has already been entered for a particular job is retrieved and placed in a form where the admin can make changes to the data and then submit it back to the database.</p>
+ <h5>Delete Jobs Page</h5> 
+                The delete page asks the admin to actually click a button in order to confirm the deleting of the page. This measure was added since this operation is a very serious operation,as advised by FitzMacken(2014) such operations should also be done using a PoST operation.page then asks the user to click a button to actually delete the record. This is an important security measure: when you perform sensitive operations in your website like updating or deleting data, these operations should always be done using a POST operation, not a GET operation. Otherwise if it were through a GET operation a malicious user can easily delete data jobs from the database. It is clicking the button that actually triggers the delete operation performed by the code below.The code is found in the delete_job.cshtml file in the admin folder:
+             <br /><code>
+    if( IsPost && !JobId.IsEmpty()) {
+    var deleteQueryString = "DELETE FROM Jobs WHERE job_id=@0";
+    db.Execute(deleteQueryString, JobId);
+               </code>
+                <h4>Techniques Used</h4>
+                    <h5>Responsive Web Design</h5>
+                    <p>The CSS3 Media queries,CSS3 fluid layout and the viewport tag in HTML5 were used to make our web pages responsive,. In the CSS file, we defined special styles which will be applied to our pages when the width of the screen becomes less than or equal to 580px ,this is known as a breakpoint.In order for our pages to scale in accordance with device width, relative units of measurement such as percentages and ems were used and this enables.The use of ems in specifying font sizes meant that our text responds to zooming</p>
+The code fragment below is 
+                    part of the css that is applied when our screen is less than or greater than 580px.It is found in the stylesheet.css file found in the stylesheeets folder.
+<pre>
+@media screen and (max-width:580px) {
+    body {
+        width: 100%;
+    }
+
+    header img {
+        width: 75%;
+    }
+
+    nav ul {
+        max-height: 0;
+    }
+
+    .showing {
+        max-height: 20em;
+    }
+
+    nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 15px;
+        text-align: left;
+    }
+
+    .handle {
+        display: block;
+    }
+
+    section {
+        width: 100%;
+        border-right: none;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    #header_image {
+        /*outline: #007089 dotted;*/
+        width: 100%;
+        height: 6em;
+    }
+
+    #main_header_image {
+        padding-top: 10%;
+        padding-left: 0.5%;
+        float: right;
+        width: 78%;
+    }
+
+    #logo {
+        padding-top: 1%;
+        float: left;
+        width: 20%;
+        height: 5em;
+    }
+
+    .col-xs-6 {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    aside {
+        padding-left: 0.1em;
+    }
+
+    #jobs_section {
+        min-height: fill-available;
+    }
+
+    #jobs_section {
+        width: 100%;
+    }
+section img {
+    /*outline: #007089 dotted;*/
+    width: 91%;
+    padding-bottom: 1em;
+    margin-right: 0em;
+}
+.form-horizontal{width: 80%;
+                 margin-left: auto;
+                 margin-right: auto;
+                 float: none;
+
+}
+}
+                     </pre>
+                <h5>Validation of User input</h5>
+                <p>It is necessary to check that when users are required to input data in a form,the information they enter is valid or falls within a particular range or to make sure that they enter some necessary information.This is normally done on the server side when a user has submitted the form. But there is also need for client side validation so that users don't have to submit before their input is validated this has many advantages for instance, when a user is filling a long form are only informed of their errors when they submit the form can be annoying for the user but client side validation helps to avoid this situation</p>               
+<p>In forms  used in this online recruitment system, validation on the client side was done using JQuery validation plugin which was recommended by Cody(2009) and FitzMacken(2014). Here,in order to validate a field,after page has been linked to the jquery plugin,Validation.For(field) is added to the field to be verified.The server side validation is done using ASP.NET web pages Validation helper.Server side validation according to FitzMacken(2014) is a security measure, in case a user is able to bypass client-based validation.Below is a fragment of the code used to validate the registration form</p>
+                 <pre>
+                Validation.RequireField("username", "*You must enter a username");
+                Validation.Add("username",
+                Validator.Regex(@"^[\s\S]{6,}$", "Please enter a minimum of 6 characters")
+                );
+                Validation.RequireField("password", "*password is required");
+                Validation.Add("password",
+                Validator.Regex(@"(?=.*\d)(?=.*[A-Z])(?=.*\W).{8,24}$", "* invalid format")
+                );
+                Validation.RequireField("password2", "*password confirmation is required");
+                Validation.RequireField("title", "*You haven't selected a Title");
+                Validation.RequireField("firstname", "*You must enter your First name");
+                Validation.RequireField("lastname", "*You haven't entered a Last name");
+                Validation.RequireField("sex", "*You must select an option");
+                Validation.RequireField("email", "*email is required");
+                Validation.RequireField("dateofbirth", "*You haven't entered a date");
+                Validation.RequireField("qualification", "*qualification is required");
+                Validation.RequireField("address1", "*You haven't entered an address");
+                Validation.RequireField("city", "*city is required");
+                Validation.RequireField("postcode", "*You haven't entered a post code");
+                Validation.RequireField("country", "*country is required");
+                </pre>
+                <h5>Authentication and Authorization</h5>
+                <p>ASP.NET Web Pages has tools for automating the process of adding security to a site.The guidelines provided by Mike Pope was used to add security to the system in the form of login capability.According to FitzMacken(2014),It is not efficient to check each user's permission before they are allowed to access a page rather it's better to create groups that users belong to and then check permission based on the groups.The approach known as roled based security was used in this project.</p>
+
+<h4 id="references">References</h4>
+<p>Brian, N., n.d. Building ASP.NET Single Page Applications in HTML 5 with Upshot. [Online] 
+Available at: http://www.codemag.com/Article/1210061</p>
+[Accessed 20 11 2014]</p>
+<p>FitzMacken, T., 2014. Introduction to Working with a Database in ASP.NET Web Pages (Razor) Sites. [Online] 
+Available at: http://www.asp.net/web-pages/overview/data/5-working-with-data
+[Accessed 01 11 2014].</p>
+<p>Lindley, C., 2009. jQuery Cookbook: Solutions & Examples for jQuery Developers. s.l.:O'Reilly Media.</p>
+<p>Ramirez, A. O., 2000. Three Tier Architecture. [Online] 
+Available at: http://www.linuxjournal.com/article/3508
+[Accessed 04 11 2014].</p>
+                <h4>Bibliography</h4>
+<p>Dynamic web Application Development using ASP.NET by Andy Gravell and David Parsons<br />
+forums.asp.net<br />
+www.aspsnippets.com<br />
+www.asp.net/webpages/overview<br />
+http://www.mikepope.com/blog/DisplayBlog.aspx<br />
+getbootsrap.com<br />
+www.thecodingguys.net/tutorial/asp<br />
+www.youtube.com<br />
+http://msdn.microsoft.com/<br />
+www.w3schools.com</p>
+
+
+             </main>
+            <footer>
+            <p>Copyright &copy Our COMP6205 Coursework 2014</p>
+            </footer>
+    </body>
+</html>
+
